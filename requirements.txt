@@ -1,0 +1,10 @@
+requests~=2.27.1
+xlwings~=0.27.6
+pandas~=1.4.2
+xlrd~=2.0.1
+numpy~=1.22.3
+beautifulsoup4~=4.11.1
+pymongo~=4.1.1
+lz4
+zstd
+SQLAlchemy==1.4.36
