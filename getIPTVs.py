@@ -1,10 +1,11 @@
+import re
+
 import requests
 import json
 import time
 from pymongo import MongoClient
 
 API_SERVER = 'https://iptv-org.github.io/api/'
-
 
 PROXIES = {
     'http': 'http://192.168.31.98:2080',
@@ -61,7 +62,16 @@ def update_data(records, collection, keys=[]):
                     print("an exception while updated data ::", e)
 
 
+def query_test(collection, cond):
+    table = db[channels]
+    record = table.find({"name": {"$regex": "^'{0}'".format('CCTV')}})
+    for r in record:
+        print(r)
+
+
 if __name__ == '__main__':
+    # query_test()
+
     res = query_data(API_SERVER + 'guides.json')
     update_data(res, collection="guides", keys=["channel", "site", "lang"])
 
